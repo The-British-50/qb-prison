@@ -8,10 +8,10 @@ RegisterNetEvent('prison:server:SetJailStatus', function(jailTime)
     if not Player then return end
     Player.Functions.SetMetaData("injail", jailTime)
     if jailTime > 0 then
-        if Player.PlayerData.job.name ~= "unemployed" then
+        --[[if Player.PlayerData.job.name ~= "unemployed" then
             Player.Functions.SetJob("unemployed")
             TriggerClientEvent('QBCore:Notify', src, Lang:t("info.lost_job"))
-        end
+        end]]-- Removed section to prevent loss of job when jailed
     else
         GotItems[source] = nil
     end
